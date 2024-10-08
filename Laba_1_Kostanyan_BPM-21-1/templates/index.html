@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переводчик</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #2c2c2c;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .result {
+            margin-top: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #3c3c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Переводчик</h1>
+        <form method="POST">
+            <input type="text" name="text" placeholder="Введите текст на английском" required class="form-control">
+            <button type="submit" class="btn btn-primary mt-3">Перевести</button>
+        </form>
+
+        {% if translation_openl %}
+        <div class="result">
+            <h3>Перевод OpenL:</h3>
+            <p>{{ translation_openl }}</p>
+        </div>
+        {% endif %}
+
+        {% if translation_ai %}
+        <div class="result">
+            <h3>Перевод AI Translate:</h3>
+            <p>{{ translation_ai }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
